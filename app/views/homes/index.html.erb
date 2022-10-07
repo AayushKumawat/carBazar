@@ -1,0 +1,136 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <div class="container-fluid">
+    <a class="navbar-brand text-danger" href="#"><h2>CarBazar</h2></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav ms-5 my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
+        <% if user_signed_in? %>
+         <div class="collapse navbar-collapse justify-content-start">
+          <ul class="navbar-nav  ms-auto my-1 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item dropdown">
+          <a class="nav-link text-success" id="navbarDarkDropdownMenuLink" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><h4><%= "Hii, #{current_user.username}" %></h4></a>
+            
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <% if current_user.profile.nil? %>
+            <li><a class="dropdown-item" href=""><%= link_to 'Create Profile', new_profile_path  %></a></li>
+             <% else %>
+            <li><a class="dropdown-item" href=""><%= link_to 'Edit Profile', edit_profile_path(current_user.profile.id)   %></a></li>
+            <% end %>
+          </ul>
+
+        </li>
+        </ul>
+        </div>
+        <%end%>
+
+        <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle btn btn-outline-danger" href="" id="navbarScrollingDropdown"  data-bs-toggle="dropdown" aria-expanded="false">
+            BUY
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <li><a class="dropdown-item" href=""><%= link_to 'TATA', cars_path %></a></li>
+            <li><a class="dropdown-item" href=""><%= link_to 'FORD', cars_path %></a></li>
+            <li><a class="dropdown-item" href=""><%= link_to 'KIA', cars_path %></a></li>
+            <li><a class="dropdown-item" href=""><%= link_to 'MARUTI', cars_path %></a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <button class="btn btn-outline-danger" type="submit"><a class="nav-link" href="/sells/new">Sell</a></button>
+        </li>
+
+        <li class="nav-item">
+          <button class="btn btn-outline-danger" type="submit"><a class="nav-link" href="/enquiries">ENQUIRY</a></button>
+        </li>
+        
+        <!-- <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
+        </li> -->
+      </ul>
+      <form class="d-flex">
+        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button> -->
+      </form>
+          <% if user_signed_in? %>
+         
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <button class="btn btn-outline-danger" type="submit"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></button>
+        </ul>
+
+        <% else %>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+           <button class="btn btn-outline-danger" type="submit"><%= link_to 'Sign In', new_user_session_path %></button>
+          <button class="btn btn-outline-danger" type="submit"><%= link_to 'Sign Up', new_user_registration_path %></button>
+          </ul> 
+          <% end %>
+    </div>
+  </div>
+</nav>
+<div class="bg-info" style="width: 100%; height: 600px;">
+    <div class="row">
+    <% @homes.each do |home|%>
+    <div class="col">
+        <div class="card" style="width: 18rem; height: 300px;">
+  <% if home.images.attached? %> 
+    <% home.images.each do |image| %>
+     <%= image_tag image %>
+    <% end %>
+<% end %>
+
+  <div class="card-body bg-success">
+    
+    Brand :<%= home.brand %><br>
+    Model :<%= home.model %><br>
+    Price :<%= home.price %><br>
+  
+  </div>
+</div>
+  </div>
+  <% end %>
+    </div>
+  </div>
+    
+  </div>
+</div>
+<div class="bg-success" style="width: 100%; height: 220px;">
+  <!-- <div class="container"> -->
+  <div class="row">
+    <div class="col"><h3 class="text-info">ADDRESS</h3>
+      <h5>
+        183,ShekarCentral<br>
+        Palasia<br>
+        Indore<br>
+        MadhyaPradesh
+      </h5>
+    </div>
+    <div class="col"><h3 class="text-info">OTHERS</h3>
+      <h5>
+        Advertise with us<br>
+        Carrers<br>
+        Customer care
+      </h5>
+    </div>
+    <div class="col">
+      <h3 class="text-info" >CONNECT WITH US</h3>
+      <h5>
+        18003009535(TOLL-FREE)<br>
+        support@carbazar.com<br>
+        Car Business<br>
+        Contact Us<br>
+        Feedback
+      </h5>
+    </div>
+    <div class="col">
+      <h3 class="text-info" >OVERVIEW</h3>
+      <h5>About us<br>
+        FAQs<br>
+        Privacy Policy<br>
+        Terms & Conditions
+      </h5>
+    </div>
+  </div>
+  <marquee direction = "right" class = "text-light">Copyright (c) 2022,CarBazar.All rights reserved</marquee>
+</div>

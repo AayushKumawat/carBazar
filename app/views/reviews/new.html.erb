@@ -1,0 +1,12 @@
+<center>
+<%=form_for @review do |f| %>
+<div>		
+<%= f.label :description %><br>
+<%= f.text_field :description %><br>
+<div>
+<%=  collection_select(:review, :car_id, Car.all , :id, :id) %><br>
+<div>	
+<%= f.submit %>
+</div>
+<% end %>
+</center>

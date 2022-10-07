@@ -1,0 +1,17 @@
+<center>
+<%=form_for @enquiry do |f| %>
+<div>
+<%= f.label :content %><br>
+<%= f.text_field :content %>
+</div>
+
+<div>
+<%= f.label :contact_no %><br>
+<%= f.text_field :contact_no %>
+</div>
+
+<div>
+<%= f.submit %>
+</div>
+<% end %>
+</center>

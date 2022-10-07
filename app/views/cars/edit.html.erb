@@ -1,0 +1,35 @@
+<center>
+<%= form_for @car do |form| %>
+  <div>
+    <%= form.label :Brand %>
+    <%= form.select :brand, [['TATA','TATA'],['KIA','KIA'],['MARUTI','MARUTI'],['FORD','FORD']] %>
+  </div>
+
+  <div>
+  <%=form.label :Model %>
+  <%= form.text_field :model %>
+  </div>
+
+  <div>
+  <%=form.label :Price %>
+  <%= form.text_field :price %>
+  </div>
+
+  <div>
+    <%= form.label :Manufacture_year %>
+    <%= form.select :manufacture_year, (Date.today.year-20)..(Date.today.year-1), :selected => Time.current.year %>
+  </div>
+
+  <div>
+  Variant : <%= form.label :Petrol %>
+     <%= form.radio_button :variant, 'petrol' %>
+     <%= form.label :Diesel %>
+     <%= form.radio_button :variant, 'diesel' %>
+</div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+  
+<% end %>
+</center>

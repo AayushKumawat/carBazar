@@ -1,0 +1,140 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <div class="container-fluid">
+    <a class="navbar-brand text-danger" href="#"><h2>CarBazar</h2></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+
+          <!-- <a class="nav-link active text-success" aria-current="page" href="#"><h4><%#= "Hii, #{current_user.username}" %></h4></a> -->
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li> -->
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Link
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
+        </li> -->
+      </ul>
+      <form class="d-flex">
+        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button> -->
+      </form>
+          <% if user_signed_in? %>
+         <div class="collapse navbar-collapse justify-content-start">
+          <ul class="navbar-nav  me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+          <a class="nav-link active text-success" href="#"><h4><%= "Hii, #{current_user.username}" %></h4></a>
+        </li>
+        </ul>
+        </div>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <button class="btn btn-outline-danger" type="submit"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></button>
+        </ul>
+        
+          <% end %>
+    </div>
+  </div>
+</nav>
+<div class="bg-success" style="width: 100%; height: 600px;">
+  <div class="row">
+    <div class="col">
+      <div class="card" style="height: 600px;">
+        <img src="https://images.hindustantimes.com/auto/img/2022/02/02/600x338/Automatic_cars_1643796714270_1643796719574.jpg" class="card-img-top" alt="">
+    </div>
+  </div>
+    <div class="col">
+    <div class="card bg-info" style="height: 600px;padding-left: 350px;">
+      <h2>Log in</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field" class="form-outline mb-4">
+    <%= f.label :login %><br />
+    <%= f.text_field :login, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <div class="d-grid gap-2 col-6 mx-1">
+    <button class="btn btn-primary" type="submit"><%="Log in" %></button>
+  </div>
+  </div>
+  
+<% end %>
+<%= render "devise/shared/links" %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="bg-success" style="width: 100%; height: 220px;">
+  <!-- <div class="container"> -->
+  <div class="row">
+    <div class="col"><h3 class="text-info">ADDRESS</h3>
+      <h5>
+        183,ShekarCentral<br>
+        Palasia<br>
+        Indore<br>
+        MadhyaPradesh
+      </h5>
+    </div>
+    <div class="col"><h3 class="text-info">OTHERS</h3>
+      <h5>
+        Advertise with us<br>
+        Carrers<br>
+        Customer care
+      </h5>
+    </div>
+    <div class="col">
+      <h3 class="text-info" >CONNECT WITH US</h3>
+      <h5>
+        18003009535(TOLL-FREE)<br>
+        support@carbazar.com<br>
+        Car Business<br>
+        Contact Us<br>
+        Feedback
+      </h5>
+    </div>
+    <div class="col">
+      <h3 class="text-info" >OVERVIEW</h3>
+      <h5>About us<br>
+        FAQs<br>
+        Privacy Policy<br>
+        Terms & Conditions
+      </h5>
+    </div>
+  </div>
+  <marquee direction = "right" class = "text-light">Copyright (c) 2022,CarBazar.All rights reserved</marquee>
+</div>
+
+<!-- Section: Design Block -->
+
+<!-- Section: Design Block -->
